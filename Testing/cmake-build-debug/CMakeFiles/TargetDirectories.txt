@@ -1,0 +1,3 @@
+/Users/Mak/ClionProjects/CS1440/HW6/Testing/cmake-build-debug/CMakeFiles/edit_cache.dir
+/Users/Mak/ClionProjects/CS1440/HW6/Testing/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/Users/Mak/ClionProjects/CS1440/HW6/Testing/cmake-build-debug/CMakeFiles/Testing.dir
