@@ -123,6 +123,60 @@ HW6/fast:
 	$(MAKE) -f CMakeFiles/HW6.dir/build.make CMakeFiles/HW6.dir/build
 .PHONY : HW6/fast
 
+Dictionary.o: Dictionary.cpp.o
+
+.PHONY : Dictionary.o
+
+# target to build an object file
+Dictionary.cpp.o:
+	$(MAKE) -f CMakeFiles/HW6.dir/build.make CMakeFiles/HW6.dir/Dictionary.cpp.o
+.PHONY : Dictionary.cpp.o
+
+Dictionary.i: Dictionary.cpp.i
+
+.PHONY : Dictionary.i
+
+# target to preprocess a source file
+Dictionary.cpp.i:
+	$(MAKE) -f CMakeFiles/HW6.dir/build.make CMakeFiles/HW6.dir/Dictionary.cpp.i
+.PHONY : Dictionary.cpp.i
+
+Dictionary.s: Dictionary.cpp.s
+
+.PHONY : Dictionary.s
+
+# target to generate assembly for a file
+Dictionary.cpp.s:
+	$(MAKE) -f CMakeFiles/HW6.dir/build.make CMakeFiles/HW6.dir/Dictionary.cpp.s
+.PHONY : Dictionary.cpp.s
+
+KeyValue.o: KeyValue.cpp.o
+
+.PHONY : KeyValue.o
+
+# target to build an object file
+KeyValue.cpp.o:
+	$(MAKE) -f CMakeFiles/HW6.dir/build.make CMakeFiles/HW6.dir/KeyValue.cpp.o
+.PHONY : KeyValue.cpp.o
+
+KeyValue.i: KeyValue.cpp.i
+
+.PHONY : KeyValue.i
+
+# target to preprocess a source file
+KeyValue.cpp.i:
+	$(MAKE) -f CMakeFiles/HW6.dir/build.make CMakeFiles/HW6.dir/KeyValue.cpp.i
+.PHONY : KeyValue.cpp.i
+
+KeyValue.s: KeyValue.cpp.s
+
+.PHONY : KeyValue.s
+
+# target to generate assembly for a file
+KeyValue.cpp.s:
+	$(MAKE) -f CMakeFiles/HW6.dir/build.make CMakeFiles/HW6.dir/KeyValue.cpp.s
+.PHONY : KeyValue.cpp.s
+
 main.o: main.cpp.o
 
 .PHONY : main.o
@@ -159,6 +213,12 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... HW6"
+	@echo "... Dictionary.o"
+	@echo "... Dictionary.i"
+	@echo "... Dictionary.s"
+	@echo "... KeyValue.o"
+	@echo "... KeyValue.i"
+	@echo "... KeyValue.s"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"
