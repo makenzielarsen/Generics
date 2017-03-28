@@ -37,6 +37,50 @@
 					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/Mak/ClionProjects/CS1440/HW6/Generics/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
+			<Target title="Test">
+				<Option output="/Users/Mak/ClionProjects/CS1440/HW6/Generics/cmake-build-debug/Test" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/Mak/ClionProjects/CS1440/HW6/Generics/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../lib/clang/8.0.0/include"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include"/>
+					<Add directory="/usr/include"/>
+					<Add directory="/System/Library/Frameworks"/>
+					<Add directory="/Library/Frameworks"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/Users/Mak/ClionProjects/CS1440/HW6/Generics/cmake-build-debug/Makefile&quot;  VERBOSE=1 Test"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/Mak/ClionProjects/CS1440/HW6/Generics/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/Users/Mak/ClionProjects/CS1440/HW6/Generics/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/Mak/ClionProjects/CS1440/HW6/Generics/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="Test/fast">
+				<Option output="/Users/Mak/ClionProjects/CS1440/HW6/Generics/cmake-build-debug/Test" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/Mak/ClionProjects/CS1440/HW6/Generics/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../lib/clang/8.0.0/include"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include"/>
+					<Add directory="/usr/include"/>
+					<Add directory="/System/Library/Frameworks"/>
+					<Add directory="/Library/Frameworks"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/Users/Mak/ClionProjects/CS1440/HW6/Generics/cmake-build-debug/Makefile&quot;  VERBOSE=1 Test/fast"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/Mak/ClionProjects/CS1440/HW6/Generics/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/Users/Mak/ClionProjects/CS1440/HW6/Generics/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/Mak/ClionProjects/CS1440/HW6/Generics/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
 			<Target title="HW6">
 				<Option output="/Users/Mak/ClionProjects/CS1440/HW6/Generics/cmake-build-debug/HW6" prefix_auto="0" extension_auto="0"/>
 				<Option working_dir="/Users/Mak/ClionProjects/CS1440/HW6/Generics/cmake-build-debug"/>
@@ -83,18 +127,26 @@
 			</Target>
 		</Build>
 		<Unit filename="/Users/Mak/ClionProjects/CS1440/HW6/Generics/Dictionary.cpp">
+			<Option target="Test"/>
 			<Option target="HW6"/>
 		</Unit>
 		<Unit filename="/Users/Mak/ClionProjects/CS1440/HW6/Generics/Dictionary.h">
+			<Option target="Test"/>
 			<Option target="HW6"/>
 		</Unit>
 		<Unit filename="/Users/Mak/ClionProjects/CS1440/HW6/Generics/KeyValue.cpp">
+			<Option target="Test"/>
 			<Option target="HW6"/>
 		</Unit>
 		<Unit filename="/Users/Mak/ClionProjects/CS1440/HW6/Generics/KeyValue.h">
+			<Option target="Test"/>
 			<Option target="HW6"/>
 		</Unit>
+		<Unit filename="/Users/Mak/ClionProjects/CS1440/HW6/Generics/Testing/testingMain.cpp">
+			<Option target="Test"/>
+		</Unit>
 		<Unit filename="/Users/Mak/ClionProjects/CS1440/HW6/Generics/main.cpp">
+			<Option target="Test"/>
 			<Option target="HW6"/>
 		</Unit>
 		<Unit filename="/Users/Mak/ClionProjects/CS1440/HW6/Generics/CMakeLists.txt">

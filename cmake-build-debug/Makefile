@@ -111,6 +111,19 @@ depend:
 .PHONY : depend
 
 #=============================================================================
+# Target rules for targets named Test
+
+# Build rule for target.
+Test: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 Test
+.PHONY : Test
+
+# fast build rule for target.
+Test/fast:
+	$(MAKE) -f CMakeFiles/Test.dir/build.make CMakeFiles/Test.dir/build
+.PHONY : Test/fast
+
+#=============================================================================
 # Target rules for targets named HW6
 
 # Build rule for target.
@@ -129,6 +142,7 @@ Dictionary.o: Dictionary.cpp.o
 
 # target to build an object file
 Dictionary.cpp.o:
+	$(MAKE) -f CMakeFiles/Test.dir/build.make CMakeFiles/Test.dir/Dictionary.cpp.o
 	$(MAKE) -f CMakeFiles/HW6.dir/build.make CMakeFiles/HW6.dir/Dictionary.cpp.o
 .PHONY : Dictionary.cpp.o
 
@@ -138,6 +152,7 @@ Dictionary.i: Dictionary.cpp.i
 
 # target to preprocess a source file
 Dictionary.cpp.i:
+	$(MAKE) -f CMakeFiles/Test.dir/build.make CMakeFiles/Test.dir/Dictionary.cpp.i
 	$(MAKE) -f CMakeFiles/HW6.dir/build.make CMakeFiles/HW6.dir/Dictionary.cpp.i
 .PHONY : Dictionary.cpp.i
 
@@ -147,6 +162,7 @@ Dictionary.s: Dictionary.cpp.s
 
 # target to generate assembly for a file
 Dictionary.cpp.s:
+	$(MAKE) -f CMakeFiles/Test.dir/build.make CMakeFiles/Test.dir/Dictionary.cpp.s
 	$(MAKE) -f CMakeFiles/HW6.dir/build.make CMakeFiles/HW6.dir/Dictionary.cpp.s
 .PHONY : Dictionary.cpp.s
 
@@ -156,6 +172,7 @@ KeyValue.o: KeyValue.cpp.o
 
 # target to build an object file
 KeyValue.cpp.o:
+	$(MAKE) -f CMakeFiles/Test.dir/build.make CMakeFiles/Test.dir/KeyValue.cpp.o
 	$(MAKE) -f CMakeFiles/HW6.dir/build.make CMakeFiles/HW6.dir/KeyValue.cpp.o
 .PHONY : KeyValue.cpp.o
 
@@ -165,6 +182,7 @@ KeyValue.i: KeyValue.cpp.i
 
 # target to preprocess a source file
 KeyValue.cpp.i:
+	$(MAKE) -f CMakeFiles/Test.dir/build.make CMakeFiles/Test.dir/KeyValue.cpp.i
 	$(MAKE) -f CMakeFiles/HW6.dir/build.make CMakeFiles/HW6.dir/KeyValue.cpp.i
 .PHONY : KeyValue.cpp.i
 
@@ -174,8 +192,36 @@ KeyValue.s: KeyValue.cpp.s
 
 # target to generate assembly for a file
 KeyValue.cpp.s:
+	$(MAKE) -f CMakeFiles/Test.dir/build.make CMakeFiles/Test.dir/KeyValue.cpp.s
 	$(MAKE) -f CMakeFiles/HW6.dir/build.make CMakeFiles/HW6.dir/KeyValue.cpp.s
 .PHONY : KeyValue.cpp.s
+
+Testing/testingMain.o: Testing/testingMain.cpp.o
+
+.PHONY : Testing/testingMain.o
+
+# target to build an object file
+Testing/testingMain.cpp.o:
+	$(MAKE) -f CMakeFiles/Test.dir/build.make CMakeFiles/Test.dir/Testing/testingMain.cpp.o
+.PHONY : Testing/testingMain.cpp.o
+
+Testing/testingMain.i: Testing/testingMain.cpp.i
+
+.PHONY : Testing/testingMain.i
+
+# target to preprocess a source file
+Testing/testingMain.cpp.i:
+	$(MAKE) -f CMakeFiles/Test.dir/build.make CMakeFiles/Test.dir/Testing/testingMain.cpp.i
+.PHONY : Testing/testingMain.cpp.i
+
+Testing/testingMain.s: Testing/testingMain.cpp.s
+
+.PHONY : Testing/testingMain.s
+
+# target to generate assembly for a file
+Testing/testingMain.cpp.s:
+	$(MAKE) -f CMakeFiles/Test.dir/build.make CMakeFiles/Test.dir/Testing/testingMain.cpp.s
+.PHONY : Testing/testingMain.cpp.s
 
 main.o: main.cpp.o
 
@@ -183,6 +229,7 @@ main.o: main.cpp.o
 
 # target to build an object file
 main.cpp.o:
+	$(MAKE) -f CMakeFiles/Test.dir/build.make CMakeFiles/Test.dir/main.cpp.o
 	$(MAKE) -f CMakeFiles/HW6.dir/build.make CMakeFiles/HW6.dir/main.cpp.o
 .PHONY : main.cpp.o
 
@@ -192,6 +239,7 @@ main.i: main.cpp.i
 
 # target to preprocess a source file
 main.cpp.i:
+	$(MAKE) -f CMakeFiles/Test.dir/build.make CMakeFiles/Test.dir/main.cpp.i
 	$(MAKE) -f CMakeFiles/HW6.dir/build.make CMakeFiles/HW6.dir/main.cpp.i
 .PHONY : main.cpp.i
 
@@ -201,6 +249,7 @@ main.s: main.cpp.s
 
 # target to generate assembly for a file
 main.cpp.s:
+	$(MAKE) -f CMakeFiles/Test.dir/build.make CMakeFiles/Test.dir/main.cpp.s
 	$(MAKE) -f CMakeFiles/HW6.dir/build.make CMakeFiles/HW6.dir/main.cpp.s
 .PHONY : main.cpp.s
 
@@ -212,6 +261,7 @@ help:
 	@echo "... depend"
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
+	@echo "... Test"
 	@echo "... HW6"
 	@echo "... Dictionary.o"
 	@echo "... Dictionary.i"
@@ -219,6 +269,9 @@ help:
 	@echo "... KeyValue.o"
 	@echo "... KeyValue.i"
 	@echo "... KeyValue.s"
+	@echo "... Testing/testingMain.o"
+	@echo "... Testing/testingMain.i"
+	@echo "... Testing/testingMain.s"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"
