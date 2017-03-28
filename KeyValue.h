@@ -5,4 +5,11 @@
 #ifndef HW6_KEYVALUE_H
 #define HW6_KEYVALUE_H
 
-#endif //HW6_KEYVALUE_H
+class KeyValue {
+private:
+
+public:
+
+};
+
+#endif

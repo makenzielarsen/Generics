@@ -4,3 +4,19 @@
 *.xml
 
 .idea/workspace.xml
+
+*.includecache
+
+*.internal
+
+*.make
+
+*.o
+
+*.includecache
+
+cmake-build-debug/CMakeFiles/HW6.dir/CXX.includecache
+
+cmake-build-debug/CMakeFiles/HW6.dir/depend.internal
+
+cmake-build-debug/CMakeFiles/HW6.dir/depend.make
