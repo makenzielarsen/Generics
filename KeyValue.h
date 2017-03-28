@@ -5,7 +5,7 @@
 #ifndef HW6_KEYVALUE_H
 #define HW6_KEYVALUE_H
 
-class KeyValue {
+template <class a_type> class KeyValue {
 private:
 
 public:

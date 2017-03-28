@@ -5,7 +5,7 @@
 #ifndef HW6_DICTIONARY_H
 #define HW6_DICTIONARY_H
 
-class Dictionary {
+template <class a_type> class Dictionary {
 private:
 
 public:
