@@ -8,7 +8,7 @@
 #include <string>
 #include "KeyValue.h"
 
-template <class a_type, class b_type> class Dictionary {
+template <typename a_type, typename b_type> class Dictionary {
 private:
     KeyValue<a_type, b_type> dictionary[];
     int availableSpace = 0;
@@ -16,8 +16,13 @@ private:
 public:
     Dictionary();
     Dictionary(int value);
+    Dictionary(Dictionary first);
     ~Dictionary();
     void add(a_type key, b_type value);
+    KeyValue getByIndex(int index);
+    KeyValue* getByKey(a_type key);
+    void removeByKey(a_type key);
+    void removeByIndex(int index);
 };
 
 #endif
