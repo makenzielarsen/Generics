@@ -5,18 +5,43 @@
 #ifndef HW6_KEYVALUE_H
 #define HW6_KEYVALUE_H
 
-template <typename a_type, typename b_type> class KeyValue {
+template <typename a_type, typename b_type>
+class KeyValue {
 private:
     a_type key;
     b_type value;
 public:
-    KeyValue();
-    KeyValue(a_type Key, b_type Value);
-    KeyValue(KeyValue first);
-    a_type getKey(){ return key; }
-    b_type getValue(){ return value; }
-    void setKey(a_type newKey);
-    void setValue(b_type newValue) { value = newValue; }
+    KeyValue() {
+        key = NULL;
+        value = NULL;
+    }
+
+    KeyValue(a_type Key, b_type Value) {
+        key = Key;
+        value = Value;
+    }
+
+    KeyValue(KeyValue first) {
+        key = first.getKey();
+        value = first.getValue();
+    }
+
+    a_type getKey(){
+        return key;
+    }
+
+    b_type getValue(){
+        return value;
+    }
+
+    void setKey(a_type newKey) {
+        // if key is invalid throw exception
+        key = newKey;
+    }
+
+    void setValue(b_type newValue) {
+        value = newValue;
+    }
 
 };
 

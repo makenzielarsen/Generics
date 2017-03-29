@@ -3,7 +3,7 @@ project(HW6)
 
 set(CMAKE_CXX_STANDARD 11)
 
-set(SOURCE_FILES main.cpp Dictionary.h Dictionary.cpp KeyValue.h KeyValue.cpp)
+set(SOURCE_FILES main.cpp Dictionary.h KeyValue.h)
 add_executable(HW6 ${SOURCE_FILES})
 
 set(TEST_FILES

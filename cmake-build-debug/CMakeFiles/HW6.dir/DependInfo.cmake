@@ -4,8 +4,6 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/Users/Mak/ClionProjects/CS1440/HW6/Generics/Dictionary.cpp" "/Users/Mak/ClionProjects/CS1440/HW6/Generics/cmake-build-debug/CMakeFiles/HW6.dir/Dictionary.cpp.o"
-  "/Users/Mak/ClionProjects/CS1440/HW6/Generics/KeyValue.cpp" "/Users/Mak/ClionProjects/CS1440/HW6/Generics/cmake-build-debug/CMakeFiles/HW6.dir/KeyValue.cpp.o"
   "/Users/Mak/ClionProjects/CS1440/HW6/Generics/main.cpp" "/Users/Mak/ClionProjects/CS1440/HW6/Generics/cmake-build-debug/CMakeFiles/HW6.dir/main.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "AppleClang")

@@ -126,15 +126,7 @@
 				</MakeCommands>
 			</Target>
 		</Build>
-		<Unit filename="/Users/Mak/ClionProjects/CS1440/HW6/Generics/Dictionary.cpp">
-			<Option target="Test"/>
-			<Option target="HW6"/>
-		</Unit>
 		<Unit filename="/Users/Mak/ClionProjects/CS1440/HW6/Generics/Dictionary.h">
-			<Option target="Test"/>
-			<Option target="HW6"/>
-		</Unit>
-		<Unit filename="/Users/Mak/ClionProjects/CS1440/HW6/Generics/KeyValue.cpp">
 			<Option target="Test"/>
 			<Option target="HW6"/>
 		</Unit>
