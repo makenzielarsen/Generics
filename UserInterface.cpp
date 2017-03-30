@@ -19,6 +19,13 @@ void printDictionaryMenu() {
     cout << "X - Exit" << endl;
 }
 
+bool checkKeyValid(string key) {
+    if (key != "string" || key != "int") {
+        return false;
+    }
+    return true;
+}
+
 void runDictionary(Dictionary currentDictionary) {
     cout << "Welcome to your dictionary" << endl;
     printDictionaryMenu();
@@ -77,13 +84,6 @@ void printMenu(){
     cout << "C - Create a new dictionary" << endl;
     cout << "D - Delete current dictionary" << endl;
     cout << "X - Exit Program" << endl;
-}
-
-bool checkKeyValid(string key) {
-    if (key != "string" || key != "int") {
-        return false;
-    }
-    return true;
 }
 
 Dictionary createDictionary() {
