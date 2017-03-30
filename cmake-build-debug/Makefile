@@ -163,6 +163,36 @@ Testing/testingMain.cpp.s:
 	$(MAKE) -f CMakeFiles/Test.dir/build.make CMakeFiles/Test.dir/Testing/testingMain.cpp.s
 .PHONY : Testing/testingMain.cpp.s
 
+UserInterface.o: UserInterface.cpp.o
+
+.PHONY : UserInterface.o
+
+# target to build an object file
+UserInterface.cpp.o:
+	$(MAKE) -f CMakeFiles/Test.dir/build.make CMakeFiles/Test.dir/UserInterface.cpp.o
+	$(MAKE) -f CMakeFiles/HW6.dir/build.make CMakeFiles/HW6.dir/UserInterface.cpp.o
+.PHONY : UserInterface.cpp.o
+
+UserInterface.i: UserInterface.cpp.i
+
+.PHONY : UserInterface.i
+
+# target to preprocess a source file
+UserInterface.cpp.i:
+	$(MAKE) -f CMakeFiles/Test.dir/build.make CMakeFiles/Test.dir/UserInterface.cpp.i
+	$(MAKE) -f CMakeFiles/HW6.dir/build.make CMakeFiles/HW6.dir/UserInterface.cpp.i
+.PHONY : UserInterface.cpp.i
+
+UserInterface.s: UserInterface.cpp.s
+
+.PHONY : UserInterface.s
+
+# target to generate assembly for a file
+UserInterface.cpp.s:
+	$(MAKE) -f CMakeFiles/Test.dir/build.make CMakeFiles/Test.dir/UserInterface.cpp.s
+	$(MAKE) -f CMakeFiles/HW6.dir/build.make CMakeFiles/HW6.dir/UserInterface.cpp.s
+.PHONY : UserInterface.cpp.s
+
 main.o: main.cpp.o
 
 .PHONY : main.o
@@ -206,6 +236,9 @@ help:
 	@echo "... Testing/testingMain.o"
 	@echo "... Testing/testingMain.i"
 	@echo "... Testing/testingMain.s"
+	@echo "... UserInterface.o"
+	@echo "... UserInterface.i"
+	@echo "... UserInterface.s"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"

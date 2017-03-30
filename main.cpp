@@ -8,4 +8,7 @@ int main() {
 
     myDictionary.add("hair color", "brown");
 
+    KeyValue* hairColor = myDictionary.getByKey("hair color");
+
+
 }

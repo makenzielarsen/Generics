@@ -34,6 +34,10 @@ public:
         delete[](dictionary);
     }
 
+    int getCount(){
+        return keyValuesAllocated;
+    }
+
     void add(a_type key, b_type value) {
         if (availableSpace <= keyValuesAllocated) {
             while (availableSpace <= keyValuesAllocated) {
@@ -53,7 +57,7 @@ public:
         keyValuesAllocated += 1;
     }
 
-    KeyValue getByIndex(int index) {
+    KeyValue* getByIndex(int index) {
         // if index is invalid throw an exception
         return dictionary[index];
     }
