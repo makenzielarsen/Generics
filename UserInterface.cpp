@@ -38,8 +38,8 @@ void runDictionary(Dictionary currentDictionary) {
                 string value;
                 cout << "Input key type: ";
                 cin >> key;
-                bool isVaild = checkKeyValid(key);
-                if (isVaild) {
+                bool isValid = checkKeyValid(key);
+                if (isValid) {
                     cout << "Input value type: ";
                     cin >> value;
                     currentDictionary.add(key, value);

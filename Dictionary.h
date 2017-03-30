@@ -11,22 +11,22 @@
 template <class a_type, class b_type>
 class Dictionary {
 private:
-    KeyValue<a_type, b_type> dictionary[];
+    KeyValue<a_type, b_type>* dictionary[];
     int availableSpace = 0;
     int keyValuesAllocated = 0;
 public:
     Dictionary() {
-        dictionary = new KeyValue<a_type, b_type>[10];
+        dictionary[10] = new KeyValue<a_type, b_type>;
         availableSpace = 10;
     }
 
     Dictionary(int value) {
-        dictionary = new KeyValue<a_type, b_type>[value];
+        dictionary[value] = new KeyValue<a_type, b_type>;
         availableSpace = value;
     }
 
-    Dictionary(Dictionary first) {
-        dictionary = new KeyValue<a_type, b_type>[first.availableSpace];
+    Dictionary(Dictionary &first) {
+        dictionary[first.availableSpace] = new KeyValue<a_type, b_type>;
         std::copy(first.dictionary, first.dictionary + first.keyValuesAllocated, dictionary);
     }
 
@@ -43,7 +43,10 @@ public:
             while (availableSpace <= keyValuesAllocated) {
                 availableSpace = availableSpace * 2;
             }
-            KeyValue<a_type, b_type>* temp = new KeyValue<a_type, b_type>[availableSpace];
+            KeyValue<a_type, b_type>* temp[availableSpace];
+            for (int i = 0; i < availableSpace; i++) {
+                temp[i] = new KeyValue<a_type, b_type>;
+            }
 
             std::fill(temp, temp + availableSpace, 0);
             std::copy(dictionary, dictionary + keyValuesAllocated, temp);
@@ -53,22 +56,31 @@ public:
             }
             dictionary = temp;
         }
-        //dictionary[keyValuesAllocated + 2] = KeyValue<a_type, b_type>;
+        dictionary[keyValuesAllocated + 2] = new KeyValue<a_type, b_type>(key, value);
         keyValuesAllocated += 1;
     }
 
     KeyValue* getByIndex(int index) {
         // if index is invalid throw an exception
-        return &dictionary[index];
+        return dictionary[index];
     }
 
     KeyValue* getByKey(a_type key) {
         for (int i = 0; i < keyValuesAllocated; i++) {
-            if (dictionary[i].getKey() == key){
-                return &dictionary[i];
+            if (dictionary[i]->getKey() == key){
+                return dictionary[i];
             }
         }
-        return &dictionary[0];
+        return dictionary[0];
+    }
+
+    int getIndex(KeyValue* key) {
+        for (int i = 0; i < keyValuesAllocated; i++) {
+            if (dictionary[i]->getKey() == key->getKey()) {
+                return i;
+            }
+        }
+        return -1;
     }
 
     void removeByKey(a_type key) {
@@ -76,11 +88,21 @@ public:
         if (temp) {
             delete temp;
         }
-        //delete from array
+        int index = getIndex(temp);
+        for (int i = index + 1; i < keyValuesAllocated - 1; ++i) {
+            dictionary[i] = dictionary[i + 1];
+        }
     }
 
     void removeByIndex(int index) {
+        KeyValue* temp = getByIndex(index);
+        if (temp) {
+            delete temp;
+        }
 
+        for (int i = index + 1; i < keyValuesAllocated - 1; ++i) {
+            dictionary[i] = dictionary[i + 1];
+        }
     }
 };
 

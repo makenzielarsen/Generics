@@ -21,7 +21,7 @@ public:
         value = Value;
     }
 
-    KeyValue(KeyValue first) {
+    KeyValue(KeyValue &first) {
         key = first.getKey();
         value = first.getValue();
     }
