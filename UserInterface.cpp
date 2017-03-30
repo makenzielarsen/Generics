@@ -12,18 +12,15 @@ void printDictionaryMenu() {
     cout << "Dictionary Menu" << endl;
     cout << "A - Add Key and Value" << endl;
     cout << "C - Get count" << endl;
-    cout << "K - Look up by key" << endl;
-    cout << "I - Look up by index" << endl;
+    cout << "K - Edit by key" << endl;
+    cout << "I - Edit by index" << endl;
     cout << "R - Remove by key" << endl;
     cout << "S - Remove by index" << endl;
     cout << "X - Exit" << endl;
 }
 
 bool checkKeyValid(string key) {
-    if (key != "string" || key != "int") {
-        return false;
-    }
-    return true;
+    return !(key != "string" || key != "int");
 }
 
 void runDictionary(Dictionary currentDictionary) {
@@ -33,6 +30,9 @@ void runDictionary(Dictionary currentDictionary) {
     cin >> selection;
     while (selection != 'X') {
         switch(selection){
+            default:
+                cout << "Unknown character. Try again." << endl;
+                break;
             case 'A':
                 string key;
                 string value;
@@ -49,15 +49,31 @@ void runDictionary(Dictionary currentDictionary) {
                 cout << "The current key/value count is " << currentDictionary.getCount() << endl;
                 break;
             case 'K':
-                cout << "Enter the key you want to look up: ";
+                cout << "Enter the key you want to edit: ";
                 cin >> key;
                 KeyValue* currentKey = currentDictionary.getByKey(key);
-                cout << "Key: " <<currentKey->getKey() << endl;
-                cout << "Value: " << currentKey->getValue() << endl;
+                cout << "Current Key: " <<currentKey->getKey() << endl;
+                cout << "Current Value: " << currentKey->getValue() << endl;
+                cout << "Enter new key (enter X to leave the same): ";
+                cin >> key;
+                if (key == "X") {
+                    cout << "Nothing was changed." << endl;
+                } else {
+                    currentKey->setKey(key);
+                }
+                cout << "Enter new value (enter X to leave the same): ";
+                cin >> value;
+                if (key == "X") {
+                    cout << "Nothing was changed." << endl;
+                } else {
+                    currentKey->setValue(value);
+                }
+                cout << "New Key: " <<currentKey->getKey() << endl;
+                cout << "New Value: " << currentKey->getValue() << endl;
                 break;
             case 'I':
                 int index;
-                cout << "Enter the index you want to look up: ";
+                cout << "Enter the index you want to edit: ";
                 cin >> index;
                 KeyValue* currentIndex = currentDictionary.getByIndex(index);
                 cout << "Key: " <<currentIndex->getKey() << endl;
@@ -117,6 +133,9 @@ void UserInterface::run() {
     cin >> selection;
     while (selection != 'X') {
         switch(selection) {
+            default:
+                cout << "Unknown character. Try again." << endl;
+                break;
             case 'C':
                 Dictionary currentDictionary = createDictionary();
                 runDictionary(currentDictionary);

@@ -59,7 +59,7 @@ public:
 
     KeyValue* getByIndex(int index) {
         // if index is invalid throw an exception
-        return dictionary[index];
+        return &dictionary[index];
     }
 
     KeyValue* getByKey(a_type key) {

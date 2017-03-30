@@ -6,6 +6,7 @@
 #define HW6_USERINTERFACE_H
 
 class UserInterface {
+public:
     void run();
 };
 
