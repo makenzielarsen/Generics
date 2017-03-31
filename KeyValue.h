@@ -35,7 +35,6 @@ public:
     }
 
     void setKey(a_type newKey) {
-        // if key is invalid throw exception
         key = newKey;
     }
 

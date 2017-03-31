@@ -8,6 +8,8 @@
 #include <string>
 #include "KeyValue.h"
 
+using namespace std;
+
 template <class a_type, class b_type>
 class Dictionary {
 private:
@@ -60,21 +62,40 @@ public:
         keyValuesAllocated += 1;
     }
 
-    KeyValue* getByIndex(int index) {
-        // if index is invalid throw an exception
+    KeyValue<a_type, b_type>* getByIndex(int index) {
+        try {
+            if (index < 0 || index > keyValuesAllocated - 1) {
+                throw 42;
+            }
+        } catch (int i) {
+            cout << "Invalid index given. Try again." << endl;
+            cin >> index;
+        }
+
         return dictionary[index];
     }
 
-    KeyValue* getByKey(a_type key) {
+    KeyValue<a_type, b_type>* getByKey(a_type key) {
         for (int i = 0; i < keyValuesAllocated; i++) {
             if (dictionary[i]->getKey() == key){
                 return dictionary[i];
             }
         }
+        try {
+            if (key == NULL) {
+                throw 42;
+            } else {
+                throw "yikes";
+            }
+        } catch (int i) {
+            cout << "Null Key. Try again." << endl;
+        } catch (string s){
+            cout << "Key not found. Try again." << endl;
+        }
         return dictionary[0];
     }
 
-    int getIndex(KeyValue* key) {
+    int getIndex(KeyValue<a_type, b_type>* key) {
         for (int i = 0; i < keyValuesAllocated; i++) {
             if (dictionary[i]->getKey() == key->getKey()) {
                 return i;
@@ -84,7 +105,21 @@ public:
     }
 
     void removeByKey(a_type key) {
-        KeyValue* temp = getByKey(key);
+        try {
+            if (key == NULL) {
+                throw 42;
+            }
+        } catch (int i) {
+            cout << "Null Key. Try again." << endl;
+        }
+        KeyValue<a_type, b_type>* temp = getByKey(key);
+        try {
+            if (temp == dictionary[0] && temp->getValue() != dictionary[0]->getValue()) {
+                throw "yikes";
+            }
+        } catch (string s){
+            cout << "Key not found. Try again." << endl;
+        }
         if (temp) {
             delete temp;
         }
@@ -92,10 +127,11 @@ public:
         for (int i = index + 1; i < keyValuesAllocated - 1; ++i) {
             dictionary[i] = dictionary[i + 1];
         }
+
     }
 
     void removeByIndex(int index) {
-        KeyValue* temp = getByIndex(index);
+        KeyValue<a_type, b_type>* temp = getByIndex(index);
         if (temp) {
             delete temp;
         }
