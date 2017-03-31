@@ -108,8 +108,8 @@ Dictionary createDictionary() {
     int termSize;
     cout << "Input key type: ";
     cin >> key;
-    bool isVaild = checkKeyValid(key);
-    if (isVaild) {
+    bool isValid = checkKeyValid(key);
+    if (isValid) {
         cout << "Input value type: ";
         cin >> value;
         cout << "Enter initial term size: ";
@@ -137,7 +137,9 @@ void UserInterface::run() {
                 cout << "Unknown character. Try again." << endl;
                 break;
             case 'C':
-                Dictionary currentDictionary = createDictionary();
+                string keyType = "null";
+                string valueType = "null";
+                Dictionary currentDictionary<keyType,valueType> = createDictionary();
                 runDictionary(currentDictionary);
                 break;
             case 'D':
