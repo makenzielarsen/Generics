@@ -23,59 +23,71 @@ bool checkKeyValid(string key) {
     return !(key != "string" || key != "int");
 }
 
-void runDictionary(Dictionary currentDictionary) {
+template<typename Key, typename Value>
+void handleA(Dictionary<Key, Value> currentDictionary) {
+    string key;
+    string value;
+    cout << "Input key type: ";
+    cin >> key;
+    bool isValid = checkKeyValid(key);
+    if (isValid) {
+        cout << "Input value type: ";
+        cin >> value;
+        currentDictionary.add(key, value);
+    }
+}
+
+template<typename Key, typename Value>
+void handleK(Dictionary<Key, Value> currentDictionary){
+    string key;
+    string value;
+    cout << "Enter the key you want to edit: ";
+    cin >> key;
+    KeyValue<Key, Value>* currentKey = currentDictionary.getByKey(key);
+    cout << "Current Key: " <<currentKey->getKey() << endl;
+    cout << "Current Value: " << currentKey->getValue() << endl;
+    cout << "Enter new key (enter X to leave the same): ";
+    cin >> key;
+    if (key == "X") {
+        cout << "Nothing was changed." << endl;
+    } else {
+        currentKey->setKey(key);
+    }
+    cout << "Enter new value (enter X to leave the same): ";
+    cin >> value;
+    if (key == "X") {
+        cout << "Nothing was changed." << endl;
+    } else {
+        currentKey->setValue(value);
+    }
+    cout << "New Key: " <<currentKey->getKey() << endl;
+    cout << "New Value: " << currentKey->getValue() << endl;
+}
+
+template<typename Key, typename Value>
+void runDictionary(Dictionary<Key, Value> currentDictionary) {
     cout << "Welcome to your dictionary" << endl;
     printDictionaryMenu();
     char selection = 'A';
     cin >> selection;
+    string key;
+    KeyValue<Key, Value>* currentIndex;
     while (selection != 'X') {
         switch(selection){
-            default:
-                cout << "Unknown character. Try again." << endl;
-                break;
             case 'A':
-                string key;
-                string value;
-                cout << "Input key type: ";
-                cin >> key;
-                bool isValid = checkKeyValid(key);
-                if (isValid) {
-                    cout << "Input value type: ";
-                    cin >> value;
-                    currentDictionary.add(key, value);
-                }
+                handleA(currentDictionary);
                 break;
             case 'C':
                 cout << "The current key/value count is " << currentDictionary.getCount() << endl;
                 break;
             case 'K':
-                cout << "Enter the key you want to edit: ";
-                cin >> key;
-                KeyValue* currentKey = currentDictionary.getByKey(key);
-                cout << "Current Key: " <<currentKey->getKey() << endl;
-                cout << "Current Value: " << currentKey->getValue() << endl;
-                cout << "Enter new key (enter X to leave the same): ";
-                cin >> key;
-                if (key == "X") {
-                    cout << "Nothing was changed." << endl;
-                } else {
-                    currentKey->setKey(key);
-                }
-                cout << "Enter new value (enter X to leave the same): ";
-                cin >> value;
-                if (key == "X") {
-                    cout << "Nothing was changed." << endl;
-                } else {
-                    currentKey->setValue(value);
-                }
-                cout << "New Key: " <<currentKey->getKey() << endl;
-                cout << "New Value: " << currentKey->getValue() << endl;
+                handleK(currentDictionary);
                 break;
             case 'I':
                 int index;
                 cout << "Enter the index you want to edit: ";
                 cin >> index;
-                KeyValue* currentIndex = currentDictionary.getByIndex(index);
+                currentIndex = currentDictionary.getByIndex(index);
                 cout << "Key: " <<currentIndex->getKey() << endl;
                 cout << "Value: " << currentIndex->getValue() << endl;
                 break;
@@ -88,6 +100,9 @@ void runDictionary(Dictionary currentDictionary) {
                 cout << "Enter the key you want to delete: ";
                 cin >> key;
                 currentDictionary.removeByKey(key);
+                break;
+            default:
+                cout << "Unknown character. Try again." << endl;
                 break;
         }
         printDictionaryMenu();
@@ -102,24 +117,46 @@ void printMenu(){
     cout << "X - Exit Program" << endl;
 }
 
-Dictionary createDictionary() {
+template<typename Key, typename Value>
+Dictionary<Key, Value> createDictionary() {
     string key;
     string value;
     int termSize;
-    cout << "Input key type: ";
-    cin >> key;
-    bool isValid = checkKeyValid(key);
-    if (isValid) {
+
+    while(!checkKeyValid(key)) {
+        cout << "Input key type: ";
+        cin >> key;
+    }
+
+    while(!checkKeyValid(value)) {
         cout << "Input value type: ";
         cin >> value;
-        cout << "Enter initial term size: ";
-        cin >> termSize;
     }
-    Dictionary currentDictionary<key, value>;
-    return currentDictionary;
+
+    cout << "Enter initial term size: ";
+    cin >> termSize;
+
+    if(key == "string" && value == "string") {
+        Dictionary<std::string, std::string> currentDictionary;
+        return currentDictionary;
+    }
+    else if (key == "int" && value == "int") {
+        Dictionary<int, int> currentDictionary;
+        return currentDictionary;
+    }
+    else if (key == "string" && value == "int") {
+        Dictionary<std::string, int> currentDictionary;
+        return currentDictionary;
+    }
+    else if (key == "int" && value == "string") {
+        Dictionary<int, std::string> currentDictionary;
+        return currentDictionary;
+    }
+    return NULL;
 };
 
-void deleteDictionary(Dictionary currentDictionary) {
+template<typename Key, typename Value>
+void deleteDictionary(Dictionary<Key, Value> currentDictionary) {
     currentDictionary.~Dictionary();
     cout << "Dictionary Deleted" << endl;
 }
@@ -129,21 +166,21 @@ void UserInterface::run() {
 
     printMenu();
 
+    Dictionary dictionary;
+
     char selection = 'A';
     cin >> selection;
     while (selection != 'X') {
         switch(selection) {
-            default:
-                cout << "Unknown character. Try again." << endl;
-                break;
             case 'C':
-                string keyType = "null";
-                string valueType = "null";
-                Dictionary currentDictionary<keyType,valueType> = createDictionary();
-                runDictionary(currentDictionary);
+                dictionary = createDictionary();
+                runDictionary(dictionary);
                 break;
             case 'D':
-                deleteDictionary(currentDictionary);
+                deleteDictionary(dictionary);
+                break;
+            default:
+                cout << "Unknown character. Try again." << endl;
                 break;
         }
         printMenu();

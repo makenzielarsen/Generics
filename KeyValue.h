@@ -5,20 +5,20 @@
 #ifndef HW6_KEYVALUE_H
 #define HW6_KEYVALUE_H
 
-template <typename a_type, typename b_type>
+template <typename Key, typename Value>
 class KeyValue {
 private:
-    a_type key;
-    b_type value;
+    Key key;
+    Value value;
 public:
     KeyValue() {
         key = NULL;
         value = NULL;
     }
 
-    KeyValue(a_type Key, b_type Value) {
-        key = Key;
-        value = Value;
+    KeyValue(Key k, Value v) {
+        key = k;
+        value = v;
     }
 
     KeyValue(KeyValue &first) {
@@ -26,19 +26,19 @@ public:
         value = first.getValue();
     }
 
-    a_type getKey(){
+    Key getKey(){
         return key;
     }
 
-    b_type getValue(){
+    Value getValue(){
         return value;
     }
 
-    void setKey(a_type newKey) {
+    void setKey(Key newKey) {
         key = newKey;
     }
 
-    void setValue(b_type newValue) {
+    void setValue(Value newValue) {
         value = newValue;
     }
 

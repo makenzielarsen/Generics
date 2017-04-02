@@ -10,25 +10,25 @@
 
 using namespace std;
 
-template <class a_type, class b_type>
+template <class Key, class Value>
 class Dictionary {
 private:
-    KeyValue<a_type, b_type>* dictionary[];
+    KeyValue<Key, Value>* dictionary[];
     int availableSpace = 0;
     int keyValuesAllocated = 0;
 public:
     Dictionary() {
-        dictionary[10] = new KeyValue<a_type, b_type>;
+        dictionary[10] = new KeyValue<Key, Value>;
         availableSpace = 10;
     }
 
     Dictionary(int value) {
-        dictionary[value] = new KeyValue<a_type, b_type>;
+        dictionary[value] = new KeyValue<Key, Value>;
         availableSpace = value;
     }
 
     Dictionary(Dictionary &first) {
-        dictionary[first.availableSpace] = new KeyValue<a_type, b_type>;
+        dictionary[first.availableSpace] = new KeyValue<Key, Value>;
         std::copy(first.dictionary, first.dictionary + first.keyValuesAllocated, dictionary);
     }
 
@@ -40,14 +40,14 @@ public:
         return keyValuesAllocated;
     }
 
-    void add(a_type key, b_type value) {
+    void add(Key key, Value value) {
         if (availableSpace <= keyValuesAllocated) {
             while (availableSpace <= keyValuesAllocated) {
                 availableSpace = availableSpace * 2;
             }
-            KeyValue<a_type, b_type>* temp[availableSpace];
+            KeyValue<Key, Value>* temp[availableSpace];
             for (int i = 0; i < availableSpace; i++) {
-                temp[i] = new KeyValue<a_type, b_type>;
+                temp[i] = new KeyValue<Key, Value>;
             }
 
             std::fill(temp, temp + availableSpace, 0);
@@ -58,11 +58,11 @@ public:
             }
             dictionary = temp;
         }
-        dictionary[keyValuesAllocated + 2] = new KeyValue<a_type, b_type>(key, value);
+        dictionary[keyValuesAllocated + 2] = new KeyValue<Key, Value>(key, value);
         keyValuesAllocated += 1;
     }
 
-    KeyValue<a_type, b_type>* getByIndex(int index) {
+    KeyValue<Key, Value>* getByIndex(int index) {
         try {
             if (index < 0 || index > keyValuesAllocated - 1) {
                 throw 42;
@@ -75,7 +75,7 @@ public:
         return dictionary[index];
     }
 
-    KeyValue<a_type, b_type>* getByKey(a_type key) {
+    KeyValue<Key, Value>* getByKey(Key key) {
         for (int i = 0; i < keyValuesAllocated; i++) {
             if (dictionary[i]->getKey() == key){
                 return dictionary[i];
@@ -95,7 +95,7 @@ public:
         return dictionary[0];
     }
 
-    int getIndex(KeyValue<a_type, b_type>* key) {
+    int getIndex(KeyValue<Key, Value>* key) {
         for (int i = 0; i < keyValuesAllocated; i++) {
             if (dictionary[i]->getKey() == key->getKey()) {
                 return i;
@@ -104,7 +104,7 @@ public:
         return -1;
     }
 
-    void removeByKey(a_type key) {
+    void removeByKey(Key key) {
         try {
             if (key == NULL) {
                 throw 42;
@@ -112,7 +112,7 @@ public:
         } catch (int i) {
             cout << "Null Key. Try again." << endl;
         }
-        KeyValue<a_type, b_type>* temp = getByKey(key);
+        KeyValue<Key, Value>* temp = getByKey(key);
         try {
             if (temp == dictionary[0] && temp->getValue() != dictionary[0]->getValue()) {
                 throw "yikes";
@@ -131,7 +131,7 @@ public:
     }
 
     void removeByIndex(int index) {
-        KeyValue<a_type, b_type>* temp = getByIndex(index);
+        KeyValue<Key, Value>* temp = getByIndex(index);
         if (temp) {
             delete temp;
         }
