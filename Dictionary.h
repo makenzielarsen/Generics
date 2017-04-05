@@ -20,13 +20,13 @@ private:
 public:
     Dictionary() {
         for (int i = 0; i < 10; i++) {
-            dictionary[i] = new KeyValue<Key, Value>;
+            dictionary.push_back(new KeyValue<Key, Value>);
         }
     }
 
     Dictionary(unsigned long capacity) {
         for (int i = 0; i < capacity; i++) {
-            dictionary[i] = new KeyValue<Key, Value>;
+            dictionary.push_back(new KeyValue<Key, Value>);
         }
     }
 

@@ -157,15 +157,19 @@ void UserInterface::run() {
 
                 if(key == "string" && value == "string") {
                     Dictionary<std::string, std::string> currentDictionary;
+                    //runDictionary(currentDictionary);
                 }
                 else if (key == "int" && value == "int") {
                     Dictionary<int, int> currentDictionary;
+                    //runDictionary(currentDictionary);
                 }
                 else if (key == "string" && value == "int") {
                     Dictionary<std::string, int> currentDictionary;
+                    //runDictionary(currentDictionary);
                 }
                 else if (key == "int" && value == "string") {
                     Dictionary<int, std::string> currentDictionary;
+                    //runDictionary(currentDictionary);
                 }
                 break;
             case 'D':
