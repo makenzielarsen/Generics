@@ -40,7 +40,7 @@ public:
         for (int i = 0; i < dictionary.size(); i++) {
             delete dictionary[i];
         }
-        delete dictionary;
+        dictionary.clear();
     }
 
     unsigned long getCount(){

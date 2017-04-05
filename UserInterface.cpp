@@ -118,62 +118,29 @@ void printMenu(){
     cout << "X - Exit Program" << endl;
 }
 
-template<typename Key, typename Value>
-Dictionary<Key, Value> createDictionary() {
+void UserInterface::run() {
     string key;
     string value;
-    int termSize;
+    cout << "Welcome to the Dictionary Application" << endl;
 
-    while(!checkKeyValid(key)) {
-        cout << "Input key type: ";
-        cin >> key;
-    }
-
-    while(!checkKeyValid(value)) {
-        cout << "Input value type: ";
-        cin >> value;
-    }
-
-    cout << "Enter initial term size: ";
-    cin >> termSize;
+    cout << "Enter a key type: ";
+    cin >> key;
+    cout << endl << "Enter a value type: ";
+    cin >> value;
+    cout << endl;
 
     if(key == "string" && value == "string") {
         Dictionary<std::string, std::string> currentDictionary;
-        return currentDictionary;
     }
     else if (key == "int" && value == "int") {
         Dictionary<int, int> currentDictionary;
-        return currentDictionary;
     }
     else if (key == "string" && value == "int") {
         Dictionary<std::string, int> currentDictionary;
-        return currentDictionary;
     }
     else if (key == "int" && value == "string") {
         Dictionary<int, std::string> currentDictionary;
-        return currentDictionary;
     }
-    return NULL;
-};
-
-template<typename Key, typename Value>
-void deleteDictionary() {
-    Dictionary<Key, Value> currentDictionary;
-    currentDictionary.~Dictionary();
-    cout << "Dictionary Deleted" << endl;
-}
-
-template<typename Key, typename Value>
-Dictionary<Key, Value> handleC() {
-    Dictionary<Key, Value> dictionary;
-    dictionary = createDictionary();
-    runDictionary(dictionary);
-    return dictionary;
-}
-
-template<typename Key, typename Value>
-void UserInterface::run() {
-    cout << "Welcome to the Dictionary Application" << endl;
 
     printMenu();
 
@@ -182,10 +149,27 @@ void UserInterface::run() {
     while (selection != 'X') {
         switch(selection) {
             case 'C':
-                handleC();
+                cout << "Enter a key type: ";
+                cin >> key;
+                cout << endl << "Enter a value type: ";
+                cin >> value;
+                cout << endl;
+
+                if(key == "string" && value == "string") {
+                    Dictionary<std::string, std::string> currentDictionary;
+                }
+                else if (key == "int" && value == "int") {
+                    Dictionary<int, int> currentDictionary;
+                }
+                else if (key == "string" && value == "int") {
+                    Dictionary<std::string, int> currentDictionary;
+                }
+                else if (key == "int" && value == "string") {
+                    Dictionary<int, std::string> currentDictionary;
+                }
                 break;
             case 'D':
-                deleteDictionary();
+                //TODO: DELETE DICTIONARY
                 break;
             default:
                 cout << "Unknown character. Try again." << endl;

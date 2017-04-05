@@ -5,6 +5,8 @@
 #ifndef HW6_KEYVALUE_H
 #define HW6_KEYVALUE_H
 
+#include <cmath>
+
 template <typename Key, typename Value>
 class KeyValue {
 private:
@@ -12,8 +14,8 @@ private:
     Value value;
 public:
     KeyValue() {
-        key = NULL;
-        value = NULL;
+        key = NAN;
+        value = NAN;
     }
 
     KeyValue(Key k, Value v) {
