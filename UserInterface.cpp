@@ -171,6 +171,7 @@ Dictionary<Key, Value> handleC() {
     return dictionary;
 }
 
+template<typename Key, typename Value>
 void UserInterface::run() {
     cout << "Welcome to the Dictionary Application" << endl;
 

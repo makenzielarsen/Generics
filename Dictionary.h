@@ -19,19 +19,27 @@ private:
 
 public:
     Dictionary() {
-        dictionary = new vector();
+        for (int i = 0; i < 10; i++) {
+            dictionary[i] = new KeyValue<Key, Value>;
+        }
     }
 
     Dictionary(unsigned long capacity) {
-        dictionary = new vector(capacity);
+        for (int i = 0; i < capacity; i++) {
+            dictionary[i] = new KeyValue<Key, Value>;
+        }
     }
 
     Dictionary(Dictionary<Key, Value> &first) {
-        dictionary = new vector(first.dictionary);
+        for (int i = 0; i < first.dictionary.size(); i++) {
+            dictionary[i] = first.dictionary[i];
+        }
     }
 
     ~Dictionary() {
-        // TODO do i want to delete all the pointers as well?
+        for (int i = 0; i < dictionary.size(); i++) {
+            delete dictionary[i];
+        }
         delete dictionary;
     }
 
@@ -44,7 +52,7 @@ public:
         dictionary.push_back(keyValue);
     }
 
-    const KeyValue<Key, Value>* getByIndex(int index) {
+    KeyValue<Key, Value>* getByIndex(int index) {
         return dictionary[index];
     }
 
@@ -60,7 +68,7 @@ public:
     const KeyValue<Key, Value>* getByKey(const Key& key) {
         int index = getIndex(key);
         if (index == -1) {
-            // todo throw some error
+            throw out_of_range("Key not found.");
         }
         return dictionary[index];
     }
@@ -72,7 +80,7 @@ public:
     void removeByKey(Key key) {
         int index = getIndex(key);
         if (index == -1) {
-            //TODO: throw error
+            throw out_of_range("Key not found.");
         }
         removeByIndex(index);
 
