@@ -4,6 +4,7 @@
 
 #include <iostream>
 #include "UserInterface.h"
+#include "KeyValue.h"
 #include "Dictionary.h"
 
 using namespace std;
@@ -156,9 +157,18 @@ Dictionary<Key, Value> createDictionary() {
 };
 
 template<typename Key, typename Value>
-void deleteDictionary(Dictionary<Key, Value> currentDictionary) {
+void deleteDictionary() {
+    Dictionary<Key, Value> currentDictionary;
     currentDictionary.~Dictionary();
     cout << "Dictionary Deleted" << endl;
+}
+
+template<typename Key, typename Value>
+Dictionary<Key, Value> handleC() {
+    Dictionary<Key, Value> dictionary;
+    dictionary = createDictionary();
+    runDictionary(dictionary);
+    return dictionary;
 }
 
 void UserInterface::run() {
@@ -166,18 +176,15 @@ void UserInterface::run() {
 
     printMenu();
 
-    Dictionary dictionary;
-
     char selection = 'A';
     cin >> selection;
     while (selection != 'X') {
         switch(selection) {
             case 'C':
-                dictionary = createDictionary();
-                runDictionary(dictionary);
+                handleC();
                 break;
             case 'D':
-                deleteDictionary(dictionary);
+                deleteDictionary();
                 break;
             default:
                 cout << "Unknown character. Try again." << endl;
