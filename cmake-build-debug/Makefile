@@ -136,6 +136,33 @@ HW6/fast:
 	$(MAKE) -f CMakeFiles/HW6.dir/build.make CMakeFiles/HW6.dir/build
 .PHONY : HW6/fast
 
+Testing/testDictionary.o: Testing/testDictionary.cpp.o
+
+.PHONY : Testing/testDictionary.o
+
+# target to build an object file
+Testing/testDictionary.cpp.o:
+	$(MAKE) -f CMakeFiles/Test.dir/build.make CMakeFiles/Test.dir/Testing/testDictionary.cpp.o
+.PHONY : Testing/testDictionary.cpp.o
+
+Testing/testDictionary.i: Testing/testDictionary.cpp.i
+
+.PHONY : Testing/testDictionary.i
+
+# target to preprocess a source file
+Testing/testDictionary.cpp.i:
+	$(MAKE) -f CMakeFiles/Test.dir/build.make CMakeFiles/Test.dir/Testing/testDictionary.cpp.i
+.PHONY : Testing/testDictionary.cpp.i
+
+Testing/testDictionary.s: Testing/testDictionary.cpp.s
+
+.PHONY : Testing/testDictionary.s
+
+# target to generate assembly for a file
+Testing/testDictionary.cpp.s:
+	$(MAKE) -f CMakeFiles/Test.dir/build.make CMakeFiles/Test.dir/Testing/testDictionary.cpp.s
+.PHONY : Testing/testDictionary.cpp.s
+
 Testing/testKeyValuePair.o: Testing/testKeyValuePair.cpp.o
 
 .PHONY : Testing/testKeyValuePair.o
@@ -226,7 +253,6 @@ main.o: main.cpp.o
 
 # target to build an object file
 main.cpp.o:
-	$(MAKE) -f CMakeFiles/Test.dir/build.make CMakeFiles/Test.dir/main.cpp.o
 	$(MAKE) -f CMakeFiles/HW6.dir/build.make CMakeFiles/HW6.dir/main.cpp.o
 .PHONY : main.cpp.o
 
@@ -236,7 +262,6 @@ main.i: main.cpp.i
 
 # target to preprocess a source file
 main.cpp.i:
-	$(MAKE) -f CMakeFiles/Test.dir/build.make CMakeFiles/Test.dir/main.cpp.i
 	$(MAKE) -f CMakeFiles/HW6.dir/build.make CMakeFiles/HW6.dir/main.cpp.i
 .PHONY : main.cpp.i
 
@@ -246,7 +271,6 @@ main.s: main.cpp.s
 
 # target to generate assembly for a file
 main.cpp.s:
-	$(MAKE) -f CMakeFiles/Test.dir/build.make CMakeFiles/Test.dir/main.cpp.s
 	$(MAKE) -f CMakeFiles/HW6.dir/build.make CMakeFiles/HW6.dir/main.cpp.s
 .PHONY : main.cpp.s
 
@@ -260,6 +284,9 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... Test"
 	@echo "... HW6"
+	@echo "... Testing/testDictionary.o"
+	@echo "... Testing/testDictionary.i"
+	@echo "... Testing/testDictionary.s"
 	@echo "... Testing/testKeyValuePair.o"
 	@echo "... Testing/testKeyValuePair.i"
 	@echo "... Testing/testKeyValuePair.s"

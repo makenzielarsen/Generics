@@ -93,7 +93,7 @@ public:
         removeByIndex(index);
 
     }
-
+    
     void removeByIndex(int index) {
         delete dictionary[index];
         dictionary.erase(dictionary.begin() + index);

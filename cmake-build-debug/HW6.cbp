@@ -134,6 +134,9 @@
 			<Option target="Test"/>
 			<Option target="HW6"/>
 		</Unit>
+		<Unit filename="/Users/Mak/ClionProjects/CS1440/HW6/Generics/Testing/testDictionary.cpp">
+			<Option target="Test"/>
+		</Unit>
 		<Unit filename="/Users/Mak/ClionProjects/CS1440/HW6/Generics/Testing/testDictionary.h">
 			<Option target="Test"/>
 		</Unit>
@@ -155,7 +158,6 @@
 			<Option target="HW6"/>
 		</Unit>
 		<Unit filename="/Users/Mak/ClionProjects/CS1440/HW6/Generics/main.cpp">
-			<Option target="Test"/>
 			<Option target="HW6"/>
 		</Unit>
 		<Unit filename="/Users/Mak/ClionProjects/CS1440/HW6/Generics/CMakeLists.txt">

@@ -53,10 +53,32 @@ void editByKey(Dictionary<Key, Value> &dictionary) {
         cout << "Dictionary has no value for key: " << key << endl;
         return;
     }
-
-
-
 }
+
+template<typename Key, typename Value>
+void editByIndex(Dictionary<Key, Value> &dictionary) {
+    int index;
+    Key key;
+    Value value;
+    cout << "Enter the index you want to edit: ";
+    cin >> index;
+
+    try{
+        KeyValue<Key, Value>* currentIndex = dictionary.getByIndex(index);
+        currentIndex ;
+        cout << "Current Key: " <<currentIndex->getKey() << endl;
+        cout << "Current Value: " << currentIndex->getValue() << endl;
+        cout << "Enter new value: ";
+        cin >> value;
+        dictionary.edit(key, value);
+        cout << "New Key: " << key << endl;
+        cout << "New Value: " << value << endl;
+    } catch (out_of_range){
+        cout << "Index not found: " << index << endl;
+        return;
+    }
+
+};
 
 template<typename Key, typename Value>
 void runDictionary(Dictionary<Key, Value> &currentDictionary) {
@@ -65,7 +87,7 @@ void runDictionary(Dictionary<Key, Value> &currentDictionary) {
     char selection = 'A';
     cin >> selection;
     Key key;
-    KeyValue<Key, Value>* currentIndex;
+    int index;
     while (selection != 'X') {
         switch(selection){
             case 'A':
@@ -81,12 +103,7 @@ void runDictionary(Dictionary<Key, Value> &currentDictionary) {
                 editByKey(currentDictionary);
                 break;
             case 'I':
-                int index;
-                cout << "Enter the index you want to edit: ";
-                cin >> index;
-                currentIndex = currentDictionary.getByIndex(index);
-                cout << "Key: " <<currentIndex->getKey() << endl;
-                cout << "Value: " << currentIndex->getValue() << endl;
+                editByIndex(currentDictionary);
                 break;
             case 'R':
                 cout << "Enter the index you want to delete: ";
