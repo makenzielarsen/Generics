@@ -134,6 +134,18 @@
 			<Option target="Test"/>
 			<Option target="HW6"/>
 		</Unit>
+		<Unit filename="/Users/Mak/ClionProjects/CS1440/HW6/Generics/Testing/PassFailMacro.h">
+			<Option target="Test"/>
+		</Unit>
+		<Unit filename="/Users/Mak/ClionProjects/CS1440/HW6/Generics/Testing/testDictionary.h">
+			<Option target="Test"/>
+		</Unit>
+		<Unit filename="/Users/Mak/ClionProjects/CS1440/HW6/Generics/Testing/testKeyValue.h">
+			<Option target="Test"/>
+		</Unit>
+		<Unit filename="/Users/Mak/ClionProjects/CS1440/HW6/Generics/Testing/testKeyValuePair.cpp">
+			<Option target="Test"/>
+		</Unit>
 		<Unit filename="/Users/Mak/ClionProjects/CS1440/HW6/Generics/Testing/testingMain.cpp">
 			<Option target="Test"/>
 		</Unit>

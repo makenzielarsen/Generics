@@ -136,6 +136,33 @@ HW6/fast:
 	$(MAKE) -f CMakeFiles/HW6.dir/build.make CMakeFiles/HW6.dir/build
 .PHONY : HW6/fast
 
+Testing/testKeyValuePair.o: Testing/testKeyValuePair.cpp.o
+
+.PHONY : Testing/testKeyValuePair.o
+
+# target to build an object file
+Testing/testKeyValuePair.cpp.o:
+	$(MAKE) -f CMakeFiles/Test.dir/build.make CMakeFiles/Test.dir/Testing/testKeyValuePair.cpp.o
+.PHONY : Testing/testKeyValuePair.cpp.o
+
+Testing/testKeyValuePair.i: Testing/testKeyValuePair.cpp.i
+
+.PHONY : Testing/testKeyValuePair.i
+
+# target to preprocess a source file
+Testing/testKeyValuePair.cpp.i:
+	$(MAKE) -f CMakeFiles/Test.dir/build.make CMakeFiles/Test.dir/Testing/testKeyValuePair.cpp.i
+.PHONY : Testing/testKeyValuePair.cpp.i
+
+Testing/testKeyValuePair.s: Testing/testKeyValuePair.cpp.s
+
+.PHONY : Testing/testKeyValuePair.s
+
+# target to generate assembly for a file
+Testing/testKeyValuePair.cpp.s:
+	$(MAKE) -f CMakeFiles/Test.dir/build.make CMakeFiles/Test.dir/Testing/testKeyValuePair.cpp.s
+.PHONY : Testing/testKeyValuePair.cpp.s
+
 Testing/testingMain.o: Testing/testingMain.cpp.o
 
 .PHONY : Testing/testingMain.o
@@ -233,6 +260,9 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... Test"
 	@echo "... HW6"
+	@echo "... Testing/testKeyValuePair.o"
+	@echo "... Testing/testKeyValuePair.i"
+	@echo "... Testing/testKeyValuePair.s"
 	@echo "... Testing/testingMain.o"
 	@echo "... Testing/testingMain.i"
 	@echo "... Testing/testingMain.s"
