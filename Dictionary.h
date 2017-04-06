@@ -95,7 +95,7 @@ public:
     }
 
     void removeByIndex(int index) {
-        // delete pointer at index?
+        delete dictionary[index];
         dictionary.erase(dictionary.begin() + index);
     }
 };

@@ -35,15 +35,6 @@ public:
     Value getValue()const {
         return value;
     }
-
-    void setKey(Key newKey) {
-        key = newKey;
-    }
-
-    void setValue(Value newValue) {
-        value = newValue;
-    }
-
 };
 
 #endif

@@ -114,13 +114,6 @@ void printMenu(){
 }
 
 void UserInterface::run() {
-    // while input != x
-    // if input == C
-    // create a new dictionary
-    // call runDictionary
-    // if input == D && dictionary != NULL
-    // delete dictionary
-
     char selection;
     string key;
     string value;

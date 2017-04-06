@@ -5,6 +5,10 @@
 #ifndef HW6_PASSFAILMACRO_H
 #define HW6_PASSFAILMACRO_H
 
+#include <iostream>
+
+using namespace std;
+
 #define TEST(actual, expected) if (actual == expected) { std::cout << "\033[1;32m PASS \033[0m" << __FUNCTION__ << std::endl;} else { std::cout << "\033[1;31m FAIL \033[0m" << __FUNCTION__ << ": Expected " << expected << ", got " << actual << std::endl; }
 
 #define TEST_NOT(actual, expected) if (actual != expected) { std::cout << "\033[1;32m PASS \033[0m" << __FUNCTION__ << std::endl;} else { std::cout << "\033[1;31m FAIL \033[0m" << __FUNCTION__ << ": Expected not " << expected << ", got " << actual << std::endl; }

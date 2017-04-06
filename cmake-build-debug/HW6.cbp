@@ -134,9 +134,6 @@
 			<Option target="Test"/>
 			<Option target="HW6"/>
 		</Unit>
-		<Unit filename="/Users/Mak/ClionProjects/CS1440/HW6/Generics/Testing/PassFailMacro.h">
-			<Option target="Test"/>
-		</Unit>
 		<Unit filename="/Users/Mak/ClionProjects/CS1440/HW6/Generics/Testing/testDictionary.h">
 			<Option target="Test"/>
 		</Unit>
