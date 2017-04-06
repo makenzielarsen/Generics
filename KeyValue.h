@@ -28,11 +28,11 @@ public:
         value = first.getValue();
     }
 
-    Key getKey(){
+    Key getKey()const {
         return key;
     }
 
-    Value getValue(){
+    Value getValue()const {
         return value;
     }
 

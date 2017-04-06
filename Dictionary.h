@@ -19,20 +19,18 @@ private:
 
 public:
     Dictionary() {
-        for (int i = 0; i < 10; i++) {
-            dictionary.push_back(new KeyValue<Key, Value>);
-        }
+        dictionary.reserve(10);
     }
 
     Dictionary(unsigned long capacity) {
-        for (int i = 0; i < capacity; i++) {
-            dictionary.push_back(new KeyValue<Key, Value>);
-        }
+        dictionary.reserve(capacity);
     }
 
     Dictionary(Dictionary<Key, Value> &first) {
         for (int i = 0; i < first.dictionary.size(); i++) {
-            dictionary[i] = first.dictionary[i];
+            KeyValue<Key, Value> *original = first.dictionary[i];
+            KeyValue<Key, Value> *copy = new KeyValue<Key, Value>(*original);
+            dictionary.push_back(copy);
         }
     }
 
@@ -47,9 +45,19 @@ public:
         return dictionary.size();
     }
 
+    unsigned long getCapacity() {
+        return dictionary.capacity();
+    }
+
     void add(Key key, Value value) {
         KeyValue<Key, Value>* keyValue = new KeyValue<Key, Value>(key, value);
         dictionary.push_back(keyValue);
+    }
+
+    void edit(Key key, Value value) {
+        int index = getIndex(key);
+        removeByIndex(index);
+        add(key, value);
     }
 
     KeyValue<Key, Value>* getByIndex(int index) {
