@@ -58,25 +58,21 @@ void testConstructors() {
         cout << "Passed." << endl;
     }
 
+    dictionary2.add("dog", "cat");
+
     Dictionary<string, string> dictionary4(dictionary2);
-    if (dictionary4.getCapacity() != 1000) {
+    if (dictionary4.getCount() != 1) {
         cout << "Failed capacity constructor. Expected capacity: 1000. Actual: " << dictionary4.getCapacity() << endl;
     } else {
         cout << "Passed." << endl;
     }
-    if (dictionary4.getCount() != 0) {
-        cout << "Failed capacity constructor. Expected count: 0. Actual: " << dictionary4.getCount() << endl;
-    } else {
-        cout << "Passed." << endl;
-    }
+
+    dictionary3.add(1,2);
+    dictionary3.add(2,3);
+    dictionary3.add(3,4);
 
     Dictionary<int, int> dictionary5(dictionary3);
-    if (dictionary5.getCapacity() != 1000) {
-        cout << "Failed capacity constructor. Expected capacity: 1000. Actual: " << dictionary5.getCapacity() << endl;
-    } else {
-        cout << "Passed." << endl;
-    }
-    if (dictionary5.getCount() != 0) {
+    if (dictionary5.getCount() != 3) {
         cout << "Failed capacity constructor. Expected count: 0. Actual: " << dictionary5.getCount() << endl;
     } else {
         cout << "Passed." << endl;
@@ -85,6 +81,7 @@ void testConstructors() {
 }
 
 void testAddAndEdit() {
+    cout << "Testing Add and Edit" << endl;
     Dictionary<string, string> dictionary;
     dictionary.add("yin", "yang");
     if (dictionary.getByIndex(0)->getKey() != "yin" || dictionary.getByKey("yin")->getKey() != "yin") {
@@ -132,9 +129,11 @@ void testAddAndEdit() {
     } else {
         cout << "Passed." << endl;
     }
+    cout << "Done testing Add and Edit" << endl;
 }
 
 void testGetters() {
+    cout << "Testing Getter functions" << endl;
     Dictionary<string, string> dictionary;
     dictionary.add("Hair color", "Brown");
     dictionary.add("Eye color", "Brown");
@@ -178,9 +177,11 @@ void testGetters() {
     } else {
         cout << "Passed." << endl;
     }
+    cout << "Done testing Getters" << endl;
 }
 
 void testRemoves() {
+    cout << "Testing remove functions" << endl;
     Dictionary<string, string> dictionary;
     dictionary.add("silent", "night");
     dictionary.add("bright", "star");
@@ -216,11 +217,15 @@ void testRemoves() {
     } else {
         cout << "Passed." << endl;
     }
+    cout << "Done testing remove functions" << endl;
 }
 
 void DictionaryTester::runTests() {
+    cout << "Testing Dictionary" << endl;
     testConstructors();
     testAddAndEdit();
     testGetters();
     testRemoves();
+    cout << "Done Testing Dictionary" << endl;
+    cout << endl;
 }

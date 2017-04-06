@@ -7,10 +7,10 @@ using namespace std;
 int main() {
 
     cout << "Testing Dictionary Application." << endl;
+    cout << endl;
 
     KeyValuePairTester keyValuePairTester;
     keyValuePairTester.runTests();
-    cout << "Done testing KeyValue Pair" << endl;
 
     DictionaryTester dictionaryTester;
     dictionaryTester.runTests();

@@ -62,5 +62,8 @@ void testConstructorsAndGetters() {
 }
 
 void KeyValuePairTester::runTests() {
+    cout << "Testing KeyValue Pair" << endl;
     testConstructorsAndGetters();
+    cout << "Done testing KeyValue Pair" << endl;
+    cout << endl;
 }
